@@ -1,0 +1,279 @@
+/* ============================================================
+   GYRA · Yogurt helado griego sin azúcar
+   Colors + Type foundations
+   ============================================================ */
+
+/* ------- Fonts ------- */
+
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-Thin.otf") format("opentype");           font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-ThinItalic.otf") format("opentype");     font-weight: 100; font-style: italic; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-Extralight.otf") format("opentype");     font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-ExtralightItalic.otf") format("opentype"); font-weight: 200; font-style: italic; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-Light.otf") format("opentype");          font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-LightItalic.otf") format("opentype");    font-weight: 300; font-style: italic; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-Regular.otf") format("opentype");        font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-Italic.otf") format("opentype");         font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-Medium.otf") format("opentype");         font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-MediumItalic.otf") format("opentype");   font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-Semibold.otf") format("opentype");       font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-SemiboldItalic.otf") format("opentype"); font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-Bold.otf") format("opentype");           font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-BoldItalic.otf") format("opentype");     font-weight: 700; font-style: italic; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-Black.otf") format("opentype");          font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-BlackItalic.otf") format("opentype");    font-weight: 800; font-style: italic; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-Extrablack.otf") format("opentype");     font-weight: 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-ExtrablackItalic.otf") format("opentype"); font-weight: 900; font-style: italic; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-Ultra.otf") format("opentype");          font-weight: 950; font-style: normal; font-display: swap; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-UltraItalic.otf") format("opentype");    font-weight: 950; font-style: italic; font-display: swap; }
+
+/* ============================================================
+   Tokens
+   ============================================================ */
+
+:root {
+  /* ---------- Brand colors (from the official paleta cromática) ---------- */
+  --gyra-azul:   #143CA0;
+  --gyra-crema:  #F5F7F0;
+  --gyra-lima:   #E3FC87;
+  --gyra-celeste:#C0E0FF;
+  --gyra-rosa:   #FFB2F7;
+
+  /* ---------- Derived accent shades ---------- */
+  --gyra-azul-deep:   #0E2C7A;
+  --gyra-azul-soft:   #1F4FBF;
+  --gyra-crema-warm:  #ECEFE5;
+  --gyra-crema-edge:  #DCE0D0;
+  --gyra-ink:         #0A1F4D;
+
+  /* ---------- Semantic foreground / background ---------- */
+  --bg:           var(--gyra-crema);
+  --bg-elevated:  #FFFFFF;
+  --bg-inverted:  var(--gyra-azul);
+
+  --fg:           var(--gyra-azul);
+  --fg-strong:    var(--gyra-ink);
+  --fg-muted:     #3D5BB5;
+  --fg-inverted:  var(--gyra-crema);
+
+  --accent:       var(--gyra-rosa);
+  --accent-2:     var(--gyra-lima);
+  --accent-3:     var(--gyra-celeste);
+
+  --border:       rgba(20, 60, 160, 0.18);
+  --border-strong:rgba(20, 60, 160, 0.45);
+
+  /* ---------- Type ---------- */
+  --font-display: "Passenger Sans", "Familjen Grotesk", "Archivo", system-ui, sans-serif;
+  --font-body:    "Passenger Sans", "Familjen Grotesk", "Archivo", system-ui, sans-serif;
+
+  --font-wordmark-weight: 900;
+  --font-wordmark-style:  italic;
+  --font-wordmark-tracking: -0.03em;
+
+  --text-2xs: 11px;
+  --text-xs:  12px;
+  --text-sm:  14px;
+  --text-md:  16px;
+  --text-lg:  18px;
+  --text-xl:  22px;
+  --text-2xl: 28px;
+  --text-3xl: 36px;
+  --text-4xl: 48px;
+  --text-5xl: 64px;
+  --text-6xl: 88px;
+  --text-7xl: 120px;
+  --text-display: 168px;
+
+  --leading-tight:  1.0;
+  --leading-snug:   1.1;
+  --leading-normal: 1.35;
+  --leading-loose:  1.55;
+
+  /* ---------- Spacing (4px base) ---------- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-7:  32px;
+  --space-8:  40px;
+  --space-9:  56px;
+  --space-10: 72px;
+  --space-11: 96px;
+  --space-12: 128px;
+
+  /* ---------- Radii ---------- */
+  --radius-xs:    4px;
+  --radius-sm:    8px;
+  --radius-md:    14px;
+  --radius-lg:    22px;
+  --radius-xl:    32px;
+  --radius-pill:  999px;
+  --radius-blob:  48% 52% 60% 40% / 55% 45% 55% 45%;
+
+  /* ---------- Shadows ---------- */
+  --shadow-sm: 0 1px 2px rgba(20, 60, 160, 0.08);
+  --shadow-md: 0 6px 18px rgba(20, 60, 160, 0.14);
+  --shadow-lg: 0 24px 48px rgba(20, 60, 160, 0.18);
+
+  /* ---------- Motion ---------- */
+  --ease-gyra: cubic-bezier(.22, .9, .3, 1);
+  --ease-spin: cubic-bezier(.65, .05, .35, 1);
+  --dur-fast: 140ms;
+  --dur-base: 240ms;
+  --dur-slow: 480ms;
+}
+
+/* ============================================================
+   Semantic typography
+   ============================================================ */
+
+html { font-family: var(--font-body); color: var(--fg); background: var(--bg); -webkit-font-smoothing: antialiased; }
+body { font-family: var(--font-body); font-size: var(--text-md); line-height: var(--leading-normal); color: var(--fg); }
+
+.gyra-wordmark,
+.h-wordmark {
+  font-family: var(--font-display);
+  font-weight: var(--font-wordmark-weight);
+  font-style: var(--font-wordmark-style);
+  letter-spacing: var(--font-wordmark-tracking);
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+  color: var(--gyra-azul);
+}
+
+.h-display {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-style: italic;
+  font-size: var(--text-display);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: var(--gyra-azul);
+}
+
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-style: italic;
+  font-size: var(--text-5xl);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--gyra-azul);
+  margin: 0;
+}
+
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-style: italic;
+  font-size: var(--text-3xl);
+  line-height: var(--leading-snug);
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  color: var(--gyra-azul);
+  margin: 0;
+}
+
+h3, .h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-style: italic;
+  font-size: var(--text-2xl);
+  line-height: var(--leading-snug);
+  letter-spacing: -0.01em;
+  color: var(--gyra-azul);
+  margin: 0;
+}
+
+h4, .h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--gyra-azul);
+  margin: 0;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-xs);
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gyra-azul);
+}
+
+p, .p {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-md);
+  line-height: var(--leading-loose);
+  color: var(--fg);
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--text-lg);
+  line-height: var(--leading-normal);
+  color: var(--fg);
+  text-wrap: pretty;
+}
+
+.small, small {
+  font-size: var(--text-sm);
+  color: var(--fg-muted);
+}
+
+.pull {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-style: italic;
+  font-size: var(--text-3xl);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--gyra-azul);
+  text-wrap: balance;
+}
+
+.claim {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-style: italic;
+  font-size: var(--text-md);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--gyra-azul);
+  background: var(--gyra-lima);
+  border-radius: var(--radius-pill);
+  padding: var(--space-2) var(--space-4);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  line-height: 1;
+}
+
+/* ============================================================
+   Surfaces
+   ============================================================ */
+
+.surface-crema { background: var(--gyra-crema); color: var(--gyra-azul); }
+.surface-azul  { background: var(--gyra-azul);  color: var(--gyra-crema); }
+.surface-lima  { background: var(--gyra-lima);  color: var(--gyra-azul); }
+.surface-rosa  { background: var(--gyra-rosa);  color: var(--gyra-azul); }
+.surface-celeste { background: var(--gyra-celeste); color: var(--gyra-azul); }
+
+.surface-azul,
+.surface-azul h1, .surface-azul h2, .surface-azul h3, .surface-azul h4,
+.surface-azul p, .surface-azul .pull, .surface-azul .eyebrow {
+  color: var(--gyra-crema);
+}
