@@ -1,10 +1,8 @@
-import { IcArrow } from "./icons";
+import { IcArrow, IcShieldCheck } from "./icons";
 
 export default function Hero() {
   return (
     <section className="hero" id="inicio" data-screen-label="02 Hero">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="g-bg" src="/assets/gyra-signo-color-1.svg" alt="" aria-hidden="true" />
       <div className="container hero-inner">
         <div className="grid">
           <div>
@@ -12,7 +10,7 @@ export default function Hero() {
               Bienvenidos al mundo donde elegir mejor también es delicioso.
             </p>
             <h1>
-              El yogurt <em>helado</em> que <span className="underline">siempre</span> quisiste tener en casa.
+              El yogurt <em>helado</em> que vas a querer repetir, <span className="underline">siempre</span>.
             </h1>
             <p className="sub">El sabor que querés, los ingredientes que merecés.</p>
             <p className="tiny">
@@ -28,7 +26,10 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="claim-stack">
+          <div className="hero-right">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="hero-photo" src="/assets/gyrasky.jpeg" alt="" aria-hidden="true" />
+            <div className="claim-stack">
             <div className="claim">
               <span className="big">0g</span>
               <span className="lbl">Azúcar añadida</span>
@@ -42,8 +43,11 @@ export default function Hero() {
               <span className="lbl">Ingredientes que reconocés</span>
             </div>
             <div className="claim">
-              <span className="big celeste">3°</span>
-              <span className="lbl">Testeado por terceros</span>
+              <span className="big celeste" aria-hidden="true">
+                <IcShieldCheck />
+              </span>
+              <span className="lbl">Testeado por médicos</span>
+            </div>
             </div>
           </div>
         </div>

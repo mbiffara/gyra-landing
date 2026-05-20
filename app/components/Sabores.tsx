@@ -152,7 +152,7 @@ export default function Sabores() {
               ["— grasas saturadas", "5 g"],
               ["Sodio", "85 mg"],
             ]}
-            signoSrc="/assets/gyra-signo-color-3.svg"
+            signoSrc="/assets/original.png"
             proteinClaim="13g"
           />
 
@@ -178,7 +178,7 @@ export default function Sabores() {
               ["— grasas saturadas", "4.5 g"],
               ["Sodio", "78 mg"],
             ]}
-            signoSrc="/assets/gyra-signo-positivo.svg"
+            signoSrc="/assets/frutos.png"
             proteinClaim="11g"
           />
         </div>

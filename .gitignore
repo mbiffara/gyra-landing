@@ -5,3 +5,5 @@ out
 *.log
 handoff.tar.gz
 gyra-design-system
+packagingimages/
+.claude/settings.local.json
