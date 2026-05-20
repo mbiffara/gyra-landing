@@ -45,7 +45,6 @@ export default function Popup({ open, onClose }: Props) {
       data-screen-label="00 Popup"
     >
       <div className="modal-shell">
-        <div className="modal-swirl-bg" aria-hidden="true" />
         <div className="modal">
           <button className="close" onClick={onClose} aria-label="Cerrar">
             <IcClose />
@@ -63,6 +62,13 @@ export default function Popup({ open, onClose }: Props) {
             </div>
           ) : (
             <>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                className="modal-badge-spin"
+                src="/assets/gyra-badge-spinner.png"
+                alt=""
+                aria-hidden="true"
+              />
               <div className="kicker">Solo para los primeros 100</div>
               <h3>
                 Esto no lo compartimos con <em>cualquiera</em>.
