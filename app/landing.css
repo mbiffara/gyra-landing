@@ -57,6 +57,8 @@ button { font-family: inherit; }
 .btn.solid-azul:hover { background: var(--gyra-azul-deep); }
 .btn.solid-rosa { background: var(--gyra-rosa); color: var(--gyra-azul); }
 .btn.solid-rosa:hover { background: #FFA0F2; }
+.btn.solid-celeste { background: var(--gyra-celeste); color: var(--gyra-azul); }
+.btn.solid-celeste:hover { background: #A8D3FF; }
 .btn:active { transform: scale(0.97); }
 
 /* ============================================================
@@ -676,15 +678,9 @@ button { font-family: inherit; }
   display: flex; align-items: center; justify-content: center;
   color: var(--gyra-azul);
 }
-.founder .photo .ph-stripe {
+.founder .photo img {
   position: absolute; inset: 0;
-  background-image:
-    repeating-linear-gradient(135deg, transparent 0 22px, rgba(20,60,160,0.06) 22px 23px);
-}
-.founder .photo .ph-initial {
-  font-family: var(--font-display); font-weight: 900; font-style: italic;
-  font-size: 160px; line-height: 0.85; letter-spacing: -0.04em;
-  color: var(--gyra-azul); opacity: 0.18;
+  width: 100%; height: 100%; object-fit: cover;
 }
 .founder .photo .photo-tag {
   position: absolute; bottom: 18px; left: 18px;
@@ -729,16 +725,9 @@ button { font-family: inherit; }
   display: flex; align-items: center; justify-content: center;
   overflow: hidden;
 }
-.founder-closer .ph .stripe {
+.founder-closer .ph img {
   position: absolute; inset: 0;
-  background-image: repeating-linear-gradient(135deg, transparent 0 18px, rgba(20,60,160,0.07) 18px 19px);
-}
-.founder-closer .ph .lbl {
-  position: relative; z-index: 1;
-  font-family: var(--font-body); font-weight: 600;
-  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-  background: var(--gyra-azul); color: var(--gyra-crema);
-  padding: 8px 14px; border-radius: 999px;
+  width: 100%; height: 100%; object-fit: cover;
 }
 .founder-closer .copy { position: relative; z-index: 2; }
 .founder-closer .copy h4 {

@@ -45,9 +45,9 @@ export default function SobreNosotros() {
           <div className="founders">
             <div className="founder tone-celeste">
               <div className="photo">
-                <div className="ph-stripe" aria-hidden="true" />
-                <div className="ph-initial">C</div>
-                <div className="photo-tag">Foto · Cindy</div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/founder-cindy.jpg" alt="Cindy Niemetz" />
+                <div className="photo-tag">Cindy</div>
               </div>
               <div className="info">
                 <h4 className="name">Cindy Niemetz</h4>
@@ -63,9 +63,9 @@ export default function SobreNosotros() {
 
             <div className="founder tone-rosa">
               <div className="photo">
-                <div className="ph-stripe" aria-hidden="true" />
-                <div className="ph-initial">F</div>
-                <div className="photo-tag">Foto · Fede</div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/founder-fede.jpg" alt="Federico Jovedjati" />
+                <div className="photo-tag">Fede</div>
               </div>
               <div className="info">
                 <h4 className="name">Federico Jovedjati</h4>
@@ -91,8 +91,8 @@ export default function SobreNosotros() {
               <div className="sig">Cindy &amp; Fede · Fundadores · Buenos Aires</div>
             </div>
             <div className="ph">
-              <div className="stripe" aria-hidden="true" />
-              <span className="lbl">Foto · Cindy &amp; Fede</span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/assets/founders-juntos.jpg" alt="Cindy y Fede" />
             </div>
           </div>
         </div>

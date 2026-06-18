@@ -59,7 +59,7 @@ export default function Header({ onOpenPopup, active }: Props) {
               <IcInsta />
             </a>
             <button
-              className="btn primary"
+              className="btn solid-celeste"
               onClick={onOpenPopup}
               style={{ padding: "12px 20px", fontSize: 13 }}
             >
