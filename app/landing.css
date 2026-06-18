@@ -669,7 +669,7 @@ button { font-family: inherit; }
   border-radius: 28px;
   padding: 0;
   overflow: hidden;
-  display: grid; grid-template-rows: 280px auto;
+  display: grid; grid-template-rows: 340px auto;
 }
 .founder.tone-celeste .photo { background: var(--gyra-celeste); }
 .founder.tone-rosa .photo { background: var(--gyra-rosa); }
