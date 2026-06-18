@@ -74,7 +74,6 @@ export default function Popup({ open, onClose }: Props) {
                 Esto no lo compartimos con <em>cualquiera</em>.
               </h3>
               <p className="deck">
-                Suscribite y descubrí los beneficios.{" "}
                 <em>No deberíamos decirte esto</em>, pero es un gran descuento.
               </p>
 
