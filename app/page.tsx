@@ -11,7 +11,7 @@ import Sabores from "./components/Sabores";
 import SobreNosotros from "./components/SobreNosotros";
 import Sumate from "./components/Sumate";
 
-const SECTION_IDS = ["inicio", "sabores", "sobre-nosotros", "puntos", "sumate"] as const;
+const SECTION_IDS = ["inicio", "productos", "sobre-nosotros", "puntos", "sumate"] as const;
 
 export default function Page() {
   const [popupOpen, setPopupOpen] = useState(false);

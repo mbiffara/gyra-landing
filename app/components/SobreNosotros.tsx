@@ -14,16 +14,18 @@ export default function SobreNosotros() {
           <div className="body">
             <div>
               <p>
-                Durante mucho tiempo, elegir bien significaba resignar algo: el sabor, la textura, el placer de repetir. <strong>Nosotros no lo aceptamos.</strong>
+                Durante mucho tiempo, elegir bien significaba resignar algo. El sabor, la textura, el placer de repetir. <strong>Nosotros no lo aceptamos.</strong>
               </p>
               <p>
-                Creemos que lo que comés puede ser increíblemente rico y hacerte bien al mismo tiempo. Que no hay que elegir entre disfrutar y cuidarse. Que cada cucharada puede ser exactamente lo que querés —<em>sin compromisos, sin letra chica, sin ingredientes que no entendés.</em>
+                Creemos que lo que comés puede ser increíblemente rico y hacerte bien al mismo tiempo. Que disfrutar y cuidarse no son opuestos. Que cada cucharada puede ser exactamente lo que querés, <em>sin letra chica y sin ingredientes que no entendés.</em>
               </p>
-              <p>Por eso cada ingrediente de Gyra tiene un porqué. Nada está puesto al azar.</p>
+              <p>
+                Por eso trabajamos con médicos, ingenieros de alimentos y heladeros expertos que entendieron exactamente lo que buscábamos. Cada ingrediente fue elegido con criterio y cada decisión tiene un respaldo real.
+              </p>
             </div>
             <div>
               <div className="pull">
-                Solo yogurt helado real, pensado para acompañarte en los momentos que <em>más importan</em>.
+                Nada está puesto <em>al azar</em>.
               </div>
               <p style={{ marginTop: 24, opacity: 0.8, fontSize: 14, fontStyle: "italic" }}>
                 Porque elegir mejor también puede ser delicioso.
@@ -84,10 +86,9 @@ export default function SobreNosotros() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img className="g" src="/assets/gyra-signo-negativo.svg" alt="" aria-hidden="true" />
             <div className="copy">
-              <h4>Eso es GYRA.</h4>
-              <p>
-                Una marca construida por dos personas que primero fueron sus propios clientes insatisfechos. Girá hacia lo que te hace bien — sin resignar lo que te hace feliz.
-              </p>
+              <blockquote className="closer-quote">
+                Un mundo mejor empieza con las pequeñas elecciones que repetimos todos los días. Queremos que Gyra sea una de ellas.
+              </blockquote>
               <div className="sig">Cindy &amp; Fede · Fundadores · Buenos Aires</div>
             </div>
             <div className="ph">
