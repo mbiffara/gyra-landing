@@ -87,7 +87,7 @@ export default function SobreNosotros() {
             <img className="g" src="/assets/gyra-signo-negativo.svg" alt="" aria-hidden="true" />
             <div className="copy">
               <blockquote className="closer-quote">
-                Un mundo mejor empieza con las pequeñas elecciones que repetimos todos los días. Queremos que Gyra sea una de ellas.
+                <span className="qm">“</span>Un mundo mejor empieza con las pequeñas elecciones que repetimos todos los días. Queremos que Gyra sea una de ellas.<span className="qm">”</span>
               </blockquote>
               <div className="sig">Cindy &amp; Fede · Fundadores · Buenos Aires</div>
             </div>
