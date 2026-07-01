@@ -78,7 +78,7 @@ button { font-family: inherit; }
 .hdr .brand {
   display: inline-flex; align-items: center; line-height: 0;
 }
-.hdr .brand img { height: 120px; width: auto; display: block; }
+.hdr .brand img { height: 156px; width: auto; display: block; }
 .hdr nav {
   display: flex; gap: 28px; align-items: center;
 }
