@@ -28,7 +28,7 @@ export default function Hero() {
 
           <div className="hero-right">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="hero-photo" src="/assets/gyrasky.jpeg" alt="" aria-hidden="true" />
+            <img className="hero-photo" src="/assets/hero-bowl.jpeg" alt="" aria-hidden="true" />
             <div className="claim-stack">
             <div className="claim">
               <span className="big">0g</span>
