@@ -49,9 +49,9 @@ export default function Footer({ onOpenPopup }: Props) {
           </div>
           <div className="col">
             <h5>Producto</h5>
-            <a href="#sabores">Original</a>
-            <a href="#sabores">Frutos rojos</a>
-            <a href="#sabores">Próximamente</a>
+            <a href="#productos">Original</a>
+            <a href="#productos">Frutos rojos</a>
+            <a href="#productos">Próximamente</a>
           </div>
           <div className="col">
             <h5>Marca</h5>

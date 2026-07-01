@@ -17,10 +17,10 @@ export default function Hero() {
               Hecho por médicos y heladeros expertos — para que disfrutes sin preocuparte.
             </p>
             <div className="ctas">
-              <a href="#sabores" className="btn primary">
-                Sabores <IcArrow width={14} height={14} />
+              <a href="#productos" className="btn primary">
+                Productos <IcArrow width={14} height={14} />
               </a>
-              <a href="#sobre-nosotros" className="btn outline-crema">
+              <a href="#sobre-nosotros" className="btn outline-azul">
                 Conocé más
               </a>
             </div>

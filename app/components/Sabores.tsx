@@ -115,25 +115,26 @@ function FlavorCard({ tone, title, desc, specs, benefits, nutrition, signoSrc, p
 
 export default function Sabores() {
   return (
-    <section className="sabores" id="sabores" data-screen-label="04 Sabores">
+    <section className="productos" id="productos" data-screen-label="04 Productos">
       <div className="container">
         <div className="sec-head">
           <div>
-            <span className="eb rosa">Sabores · Elegí el tuyo</span>
+            <span className="eb rosa">Productos · Elegí el tuyo</span>
             <h2>
               Dos sabores. <em>Sin nada que sobre.</em>
             </h2>
           </div>
-          <p className="lead">
-            Arrancamos con dos sabores que tardamos un año en ajustar. Hacé click en cada uno y mirá por qué los vas a querer repetir.
-          </p>
+          <div className="lead">
+            <p>Dos sabores que vas a querer tener siempre en tu freezer.</p>
+            <p className="lead-sub">Elegí tu favorito. O enamorate de los dos.</p>
+          </div>
         </div>
 
         <div className="flavor-grid">
           <FlavorCard
             tone="original"
-            title="El Original."
-            desc="Sin nada que sobre. Sin nada que falte. Así de simple es hacer algo bien."
+            title="Sabor natural"
+            desc="El clásico que siempre deja ganas de volver por más."
             specs={["188 kcal", "13g proteína", "0g azúcar añadida", "Pote 150g"]}
             benefits={[
               "Cremoso de verdad — textura perfecta",
@@ -152,14 +153,14 @@ export default function Sabores() {
               ["— grasas saturadas", "5 g"],
               ["Sodio", "85 mg"],
             ]}
-            signoSrc="/assets/original.png"
+            signoSrc="/assets/sabor-natural.png"
             proteinClaim="13g"
           />
 
           <FlavorCard
             tone="frutos"
-            title="Explosión de frutos rojos."
-            desc="Empezás con uno, terminás pensando en el próximo. Eso es exactamente lo que buscábamos."
+            title="Frutos rojos"
+            desc="Dulce, fresco y simplemente irresistible."
             specs={["0g azúcar añadida", "Pote 150g", "Fruta real"]}
             benefits={[
               "Intenso y frutal sin ser artificial",
@@ -178,7 +179,7 @@ export default function Sabores() {
               ["— grasas saturadas", "4.5 g"],
               ["Sodio", "78 mg"],
             ]}
-            signoSrc="/assets/frutos.png"
+            signoSrc="/assets/frutos-rojos.png"
             proteinClaim="11g"
           />
         </div>

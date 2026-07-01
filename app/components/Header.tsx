@@ -7,7 +7,7 @@ type NavItem = { id: string; label: string; soon?: boolean };
 
 const NAV: NavItem[] = [
   { id: "inicio", label: "Inicio" },
-  { id: "sabores", label: "Sabores" },
+  { id: "productos", label: "Productos" },
   { id: "sobre-nosotros", label: "Sobre nosotros" },
   { id: "puntos", label: "Puntos de venta" },
   { id: "sumate", label: "Sumate" },
