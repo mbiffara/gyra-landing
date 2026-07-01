@@ -13,10 +13,27 @@ const PERKS = [
 export default function Sumate() {
   const [form, setForm] = useState({ local: "", nombre: "", contacto: "", barrio: "" });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (form.local.trim() && form.contacto.trim()) setSent(true);
+    if (!form.local.trim() || !form.contacto.trim() || sending) return;
+    setSending(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "sumate", ...form }),
+      });
+      if (!res.ok) throw new Error("send failed");
+      setSent(true);
+    } catch {
+      setError("No pudimos enviar tu mensaje. Probá de nuevo en un momento.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -115,9 +132,12 @@ export default function Sumate() {
                     onChange={(e) => setForm({ ...form, contacto: e.target.value })}
                   />
                 </div>
-                <button type="submit" className="submit">
-                  Quiero sumarme <IcArrow width={16} height={16} />
+                <button type="submit" className="submit" disabled={sending}>
+                  {sending ? "Enviando…" : "Quiero sumarme"} <IcArrow width={16} height={16} />
                 </button>
+                {error && (
+                  <p style={{ color: "#B00020", fontSize: 13, margin: "4px 0 0" }}>{error}</p>
+                )}
               </>
             )}
           </form>
