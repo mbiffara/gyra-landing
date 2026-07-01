@@ -11,6 +11,8 @@ type Props = {
 export default function Popup({ open, onClose }: Props) {
   const [form, setForm] = useState({ nombre: "", email: "", cumple: "" });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
   const veilRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,9 +30,24 @@ export default function Popup({ open, onClose }: Props) {
 
   if (!open) return null;
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (form.email.trim() && form.nombre.trim()) setSent(true);
+    if (!form.email.trim() || !form.nombre.trim() || sending) return;
+    setSending(true);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "descuento", ...form }),
+      });
+      if (!res.ok) throw new Error("send failed");
+      setSent(true);
+    } catch {
+      setError("No pudimos enviar tu registro. Probá de nuevo en un momento.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -112,9 +129,13 @@ export default function Popup({ open, onClose }: Props) {
                     />
                   </div>
                 </div>
-                <button type="submit" className="submit">
-                  Quiero mi descuento <IcArrow width={16} height={16} />
+                <button type="submit" className="submit" disabled={sending}>
+                  {sending ? "Enviando…" : "Quiero mi descuento"}{" "}
+                  <IcArrow width={16} height={16} />
                 </button>
+                {error && (
+                  <p style={{ color: "#B00020", fontSize: 13, margin: "4px 0 0" }}>{error}</p>
+                )}
                 <button type="button" className="decline" onClick={onClose}>
                   No gracias, prefiero pagar más caro.
                 </button>

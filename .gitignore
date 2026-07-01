@@ -7,3 +7,5 @@ handoff.tar.gz
 gyra-design-system
 packagingimages/
 .claude/settings.local.json
+
+tsconfig.tsbuildinfo
