@@ -76,7 +76,7 @@ export default function SobreNosotros() {
                   Fede es médico. Su trabajo es ayudar a las personas a vivir mejor, a encontrar mejores elecciones, a entender lo que el cuerpo necesita de verdad. Y en su vida personal, es fanático del helado.
                 </p>
                 <p>
-                  Alguien que sabe exactamente lo que debería comer — y lo que realmente quiere comer. Luego de un año de ensayos junto a médicos, ingenieros de alimentos y heladeros expertos, GYRA encontró exactamente lo que buscaba.
+                  Alguien que sabe exactamente lo que debería comer, y lo que realmente quiere comer. Luego de un año de ensayos junto a médicos, ingenieros de alimentos y heladeros expertos, GYRA encontró exactamente lo que buscaba.
                 </p>
               </div>
             </div>

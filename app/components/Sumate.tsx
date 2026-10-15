@@ -4,7 +4,7 @@ import { useState } from "react";
 import { IcArrow, IcCheck } from "./icons";
 
 const PERKS = [
-  "Margen para el local — y producto que rota",
+  "Margen para el local y producto que rota",
   "Material de comunicación pensado para tu vidriera",
   "Acompañamiento real, no solo un mail de bienvenida",
   "Primer pedido sin riesgo: si no se vende, lo retiramos",

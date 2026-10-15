@@ -9,7 +9,7 @@ type FlavorProps = {
   desc: string;
   specs: string[];
   benefits: string[];
-  nutrition: [string, string][];
+  nutrition: [string, string, boolean?][];
   signoSrc: string;
   proteinClaim: string;
 };
@@ -95,7 +95,7 @@ function FlavorCard({ tone, title, desc, specs, benefits, nutrition, signoSrc, p
             <table>
               <tbody>
                 {nutrition.map((row, i) => (
-                  <tr key={i}>
+                  <tr key={i} className={row[2] ? "sub" : undefined}>
                     <td>{row[0]}</td>
                     <td>{row[1]}</td>
                   </tr>
@@ -137,9 +137,9 @@ export default function Sabores() {
             desc="El clásico que siempre deja ganas de volver por más."
             specs={["188 kcal", "13g proteína", "0g azúcar añadida", "Pote 150g"]}
             benefits={[
-              "Cremoso de verdad — textura perfecta",
+              "Cremoso de verdad: textura perfecta",
               "Sin azúcar añadida, sin endulzantes raros",
-              "Alto en proteína — 13g por pote",
+              "Alto en proteína: 13g por pote",
               "Hecho con yogurt griego real",
               "Sin TACC · Apto kosher",
             ]}
@@ -147,10 +147,10 @@ export default function Sabores() {
               ["Valor energético", "188 kcal"],
               ["Proteínas", "13 g"],
               ["Hidratos de carbono", "11 g"],
-              ["— de los cuales azúcares", "9 g (de la leche)"],
-              ["— azúcar añadida", "0 g"],
+              ["de los cuales azúcares", "9 g (de la leche)", true],
+              ["azúcar añadida", "0 g", true],
               ["Grasas totales", "9 g"],
-              ["— grasas saturadas", "5 g"],
+              ["grasas saturadas", "5 g", true],
               ["Sodio", "85 mg"],
             ]}
             signoSrc="/assets/sabor-natural.png"
@@ -164,8 +164,8 @@ export default function Sabores() {
             specs={["0g azúcar añadida", "Pote 150g", "Fruta real"]}
             benefits={[
               "Intenso y frutal sin ser artificial",
-              "Sin azúcar añadida — la fruta hace el trabajo",
-              "Cremoso de verdad — textura yogurtería",
+              "Sin azúcar añadida: la fruta hace el trabajo",
+              "Cremoso de verdad: textura yogurtería",
               "Hecho con frutos rojos reales (frutilla, frambuesa, arándano)",
               "Sin TACC · Apto kosher",
             ]}
@@ -173,10 +173,10 @@ export default function Sabores() {
               ["Valor energético", "172 kcal"],
               ["Proteínas", "11 g"],
               ["Hidratos de carbono", "13 g"],
-              ["— de los cuales azúcares", "11 g (de la fruta)"],
-              ["— azúcar añadida", "0 g"],
+              ["de los cuales azúcares", "11 g (de la fruta)", true],
+              ["azúcar añadida", "0 g", true],
               ["Grasas totales", "8 g"],
-              ["— grasas saturadas", "4.5 g"],
+              ["grasas saturadas", "4.5 g", true],
               ["Sodio", "78 mg"],
             ]}
             signoSrc="/assets/frutos-rojos.png"

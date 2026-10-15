@@ -14,7 +14,7 @@ export default function Hero() {
             </h1>
             <p className="sub">El sabor que querés, los ingredientes que merecés.</p>
             <p className="tiny">
-              Hecho por médicos y heladeros expertos — para que disfrutes sin preocuparte.
+              Hecho por médicos y heladeros expertos, para que disfrutes sin preocuparte.
             </p>
             <div className="ctas">
               <a href="#productos" className="btn primary">

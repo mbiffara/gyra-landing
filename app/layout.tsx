@@ -5,7 +5,7 @@ import "./landing.css";
 export const metadata: Metadata = {
   title: "GYRA · El yogurt helado que siempre quisiste tener en casa",
   description:
-    "Yogurt helado griego sin azúcar — para tu freezer. Para repetir. Hecho por médicos y heladeros expertos en Buenos Aires.",
+    "Yogurt helado griego sin azúcar, para tu freezer. Para repetir. Hecho por médicos y heladeros expertos en Buenos Aires.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

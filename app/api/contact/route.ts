@@ -22,7 +22,7 @@ type SumatePayload = {
 type Payload = DescuentoPayload | SumatePayload;
 
 function esc(value: unknown): string {
-  return String(value ?? "—")
+  return String(value ?? "-")
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
@@ -46,7 +46,7 @@ function build(payload: Payload): { subject: string; html: string; replyTo?: str
       row("WhatsApp o mail", payload.contacto),
     ].join("");
     return {
-      subject: `Nuevo local interesado — ${payload.local?.trim() || "sin nombre"}`,
+      subject: `Nuevo local interesado: ${payload.local?.trim() || "sin nombre"}`,
       html: table("Sumate · nuevo local interesado", rows),
     };
   }
@@ -57,7 +57,7 @@ function build(payload: Payload): { subject: string; html: string; replyTo?: str
     row("Cumpleaños", payload.cumple),
   ].join("");
   return {
-    subject: `Nuevo registro de descuento — ${payload.nombre?.trim() || "sin nombre"}`,
+    subject: `Nuevo registro de descuento: ${payload.nombre?.trim() || "sin nombre"}`,
     html: table("Descuento · nuevo registro", rows),
     replyTo: payload.email?.trim() || undefined,
   };
