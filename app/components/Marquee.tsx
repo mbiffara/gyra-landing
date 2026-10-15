@@ -3,7 +3,7 @@ import { IcCheck } from "./icons";
 
 const ITEMS = [
   "Sin azúcar",
-  "10g proteína",
+  "16g proteína",
   "Ingredientes reales",
   "Sin TACC",
   "Apto kosher",

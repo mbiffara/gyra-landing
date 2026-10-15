@@ -28,14 +28,14 @@ export default function Hero() {
 
           <div className="hero-right">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="hero-photo" src="/assets/hero-bowl.jpeg" alt="" aria-hidden="true" />
+            <img className="hero-photo" src="/assets/hero-potes.jpg" alt="" aria-hidden="true" />
             <div className="claim-stack">
             <div className="claim">
               <span className="big">0g</span>
               <span className="lbl">Azúcar añadida</span>
             </div>
             <div className="claim">
-              <span className="big">10g</span>
+              <span className="big">16g</span>
               <span className="lbl">Proteína por pote</span>
             </div>
             <div className="claim">

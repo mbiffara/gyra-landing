@@ -63,7 +63,7 @@ export default function Header({ onOpenPopup, active }: Props) {
               onClick={onOpenPopup}
               style={{ padding: "12px 20px", fontSize: 13 }}
             >
-              Quiero mi descuento
+              Quiero mi beneficio
             </button>
             <button className="menu-btn" aria-label="Menu">
               <svg width="16" height="12" viewBox="0 0 16 12">

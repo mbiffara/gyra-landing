@@ -10,11 +10,12 @@ type FlavorProps = {
   specs: string[];
   benefits: string[];
   nutrition: [string, string, boolean?][];
+  ingredients: string;
   signoSrc: string;
   proteinClaim: string;
 };
 
-function FlavorCard({ tone, title, desc, specs, benefits, nutrition, signoSrc, proteinClaim }: FlavorProps) {
+function FlavorCard({ tone, title, desc, specs, benefits, nutrition, ingredients, signoSrc, proteinClaim }: FlavorProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -28,7 +29,7 @@ function FlavorCard({ tone, title, desc, specs, benefits, nutrition, signoSrc, p
         <div>
           <div className="pill-row">
             <span className="pill">0g azúcar añadida</span>
-            <span className="pill b">Pote 150g</span>
+            <span className="pill b">Pote 190g</span>
           </div>
         </div>
       </div>
@@ -90,7 +91,7 @@ function FlavorCard({ tone, title, desc, specs, benefits, nutrition, signoSrc, p
           <div className="nutrition">
             <div className="nut-head">
               <span>Tabla nutricional</span>
-              <span style={{ opacity: 0.7 }}>por pote · 150g</span>
+              <span style={{ opacity: 0.7 }}>por pote · 190g</span>
             </div>
             <table>
               <tbody>
@@ -102,6 +103,12 @@ function FlavorCard({ tone, title, desc, specs, benefits, nutrition, signoSrc, p
                 ))}
               </tbody>
             </table>
+            <p className="ingredients">
+              <b>Ingredientes:</b> {ingredients}
+            </p>
+            <p className="allergens">
+              Contiene leche. Puede contener huevo, maní, almendras, avellanas, pistacho, sulfitos y derivados de soja.
+            </p>
           </div>
         </div>
       </div>
@@ -135,33 +142,36 @@ export default function Sabores() {
             tone="original"
             title="Sabor natural"
             desc="El clásico que siempre deja ganas de volver por más."
-            specs={["188 kcal", "13g proteína", "0g azúcar añadida", "Pote 150g"]}
+            specs={["238 kcal", "16g proteína", "0g azúcar añadida", "Pote 190g"]}
             benefits={[
               "Cremoso de verdad: textura perfecta",
               "Sin azúcar añadida, sin endulzantes raros",
-              "Alto en proteína: 13g por pote",
+              "Alto en proteína: 16g por pote",
               "Hecho con yogurt griego real",
               "Sin TACC · Apto kosher",
             ]}
             nutrition={[
-              ["Valor energético", "188 kcal"],
-              ["Proteínas", "13 g"],
-              ["Hidratos de carbono", "11 g"],
-              ["de los cuales azúcares", "9 g (de la leche)", true],
+              ["Valor energético", "238 kcal"],
+              ["Proteínas", "16 g"],
+              ["Hidratos de carbono", "26 g"],
+              ["azúcares totales", "1.6 g", true],
               ["azúcar añadida", "0 g", true],
-              ["Grasas totales", "9 g"],
-              ["grasas saturadas", "5 g", true],
-              ["Sodio", "85 mg"],
+              ["Grasas totales", "7.6 g"],
+              ["grasas saturadas", "2.5 g", true],
+              ["grasas trans", "0 g", true],
+              ["Fibra alimentaria", "21 g"],
+              ["Sodio", "28 mg"],
             ]}
+            ingredients="Agua, yogur descremado en polvo, polidextrosa, inulina, ghee, concentrado proteico de suero de leche, sal, maltitol, stevia, goma guar, ácido láctico, aroma idéntico al natural."
             signoSrc="/assets/sabor-natural.png"
-            proteinClaim="13g"
+            proteinClaim="16g"
           />
 
           <FlavorCard
             tone="frutos"
             title="Frutos rojos"
             desc="Dulce, fresco y simplemente irresistible."
-            specs={["0g azúcar añadida", "Pote 150g", "Fruta real"]}
+            specs={["209 kcal", "14g proteína", "0g azúcar añadida", "Pote 190g"]}
             benefits={[
               "Intenso y frutal sin ser artificial",
               "Sin azúcar añadida: la fruta hace el trabajo",
@@ -170,17 +180,20 @@ export default function Sabores() {
               "Sin TACC · Apto kosher",
             ]}
             nutrition={[
-              ["Valor energético", "172 kcal"],
-              ["Proteínas", "11 g"],
-              ["Hidratos de carbono", "13 g"],
-              ["de los cuales azúcares", "11 g (de la fruta)", true],
+              ["Valor energético", "209 kcal"],
+              ["Proteínas", "14 g"],
+              ["Hidratos de carbono", "23 g"],
+              ["azúcares totales", "3.5 g", true],
               ["azúcar añadida", "0 g", true],
-              ["Grasas totales", "8 g"],
-              ["grasas saturadas", "4.5 g", true],
-              ["Sodio", "78 mg"],
+              ["Grasas totales", "6.6 g"],
+              ["grasas saturadas", "2.2 g", true],
+              ["grasas trans", "0 g", true],
+              ["Fibra alimentaria", "19 g"],
+              ["Sodio", "54 mg"],
             ]}
+            ingredients="Agua, frambuesa, yogur descremado en polvo, polidextrosa, arándanos, inulina, ghee, concentrado proteico de suero de leche, frutilla, sal, maltitol, stevia, goma guar, ácido láctico, ácido cítrico, aroma idéntico al natural."
             signoSrc="/assets/frutos-rojos.png"
-            proteinClaim="11g"
+            proteinClaim="14g"
           />
         </div>
       </div>

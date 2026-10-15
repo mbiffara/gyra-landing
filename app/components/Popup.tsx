@@ -74,7 +74,7 @@ export default function Popup({ open, onClose }: Props) {
               </div>
               <h4>Estás en la lista.</h4>
               <p style={{ fontSize: 14, lineHeight: 1.5, margin: 0, maxWidth: "32ch" }}>
-                Te mandamos un mail con tu código de descuento. Nos vemos en tu freezer.
+                Te vamos a escribir con novedades, lanzamientos y beneficios exclusivos. Nos vemos en tu freezer.
               </p>
             </div>
           ) : (
@@ -91,7 +91,7 @@ export default function Popup({ open, onClose }: Props) {
                 Esto no lo compartimos con <em>cualquiera</em>.
               </h3>
               <p className="deck">
-                <em>No deberíamos decirte esto</em>, pero es un gran descuento.
+                Registrate y accedé a novedades, lanzamientos y <em>beneficios exclusivos</em> de GYRA.
               </p>
 
               <form onSubmit={submit}>
@@ -130,7 +130,7 @@ export default function Popup({ open, onClose }: Props) {
                   </div>
                 </div>
                 <button type="submit" className="submit" disabled={sending}>
-                  {sending ? "Enviando…" : "Quiero mi descuento"}{" "}
+                  {sending ? "Enviando…" : "Quiero ser parte"}{" "}
                   <IcArrow width={16} height={16} />
                 </button>
                 {error && (

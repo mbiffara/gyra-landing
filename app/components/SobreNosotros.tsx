@@ -93,7 +93,7 @@ export default function SobreNosotros() {
             </div>
             <div className="ph">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/founders-juntos.jpg" alt="Cindy y Fede" />
+              <img src="/assets/founders-potes.jpg" alt="Cindy y Fede con dos potes de GYRA" />
             </div>
           </div>
         </div>

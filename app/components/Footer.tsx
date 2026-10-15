@@ -11,7 +11,8 @@ export default function Footer({ onOpenPopup }: Props) {
       <div className="container">
         <div className="big-row">
           <div className="big-mark">
-            GYRA<em>.</em>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/assets/gyra-logotipo-negativo.svg" alt="GYRA" />
           </div>
           <div className="tag">
             Porque elegir mejor también puede ser delicioso. <br />
