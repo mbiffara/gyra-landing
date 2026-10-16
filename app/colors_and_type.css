@@ -25,6 +25,9 @@
 @font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-ExtrablackItalic.otf") format("opentype"); font-weight: 900; font-style: italic; font-display: swap; }
 @font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-Ultra.otf") format("opentype");          font-weight: 950; font-style: normal; font-display: swap; }
 @font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-UltraItalic.otf") format("opentype");    font-weight: 950; font-style: italic; font-display: swap; }
+/* BlackItalic y ExtrablackItalic traen la "v" minúscula vacía: la tomamos de UltraItalic */
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-UltraItalic.otf") format("opentype");    font-weight: 800; font-style: italic; font-display: swap; unicode-range: U+0076; }
+@font-face { font-family: "Passenger Sans"; src: url("/fonts/PassengerSans-UltraItalic.otf") format("opentype");    font-weight: 900; font-style: italic; font-display: swap; unicode-range: U+0076; }
 
 /* ============================================================
    Tokens

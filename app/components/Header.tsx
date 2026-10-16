@@ -22,6 +22,7 @@ type Props = {
 
 export default function Header({ onOpenPopup, active }: Props) {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -30,7 +31,7 @@ export default function Header({ onOpenPopup, active }: Props) {
   }, []);
 
   return (
-    <header className={`hdr ${scrolled ? "scrolled" : ""}`} data-screen-label="01 Header">
+    <header className={`hdr ${scrolled ? "scrolled" : ""} ${menuOpen ? "menu-open" : ""}`} data-screen-label="01 Header">
       <div className="container">
         <div className="row">
           <a href="#inicio" className="brand" aria-label="GYRA">
@@ -43,6 +44,7 @@ export default function Header({ onOpenPopup, active }: Props) {
                 key={n.id}
                 href={n.soon ? "#" : `#${n.id}`}
                 className={`${n.soon ? "soon" : ""} ${active === n.id ? "active" : ""}`}
+                onClick={() => setMenuOpen(false)}
               >
                 {n.label}
               </a>
@@ -65,7 +67,12 @@ export default function Header({ onOpenPopup, active }: Props) {
             >
               Quiero mi beneficio
             </button>
-            <button className="menu-btn" aria-label="Menu">
+            <button
+              className="menu-btn"
+              aria-label="Menu"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
               <svg width="16" height="12" viewBox="0 0 16 12">
                 <path d="M0 1h16M0 6h16M0 11h16" stroke="currentColor" strokeWidth="2" />
               </svg>

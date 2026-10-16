@@ -142,7 +142,7 @@ export default function Sabores() {
             tone="original"
             title="Sabor natural"
             desc="El clásico que siempre deja ganas de volver por más."
-            specs={["238 kcal", "16g proteína", "0g azúcar añadida", "Pote 190g"]}
+            specs={["Con prebióticos", "16g proteína", "0g azúcar añadida", "Pote 190g"]}
             benefits={[
               "Cremoso de verdad: textura perfecta",
               "Sin azúcar añadida, sin endulzantes raros",
@@ -163,7 +163,7 @@ export default function Sabores() {
               ["Sodio", "28 mg"],
             ]}
             ingredients="Agua, yogur descremado en polvo, polidextrosa, inulina, ghee, concentrado proteico de suero de leche, sal, maltitol, stevia, goma guar, ácido láctico, aroma idéntico al natural."
-            signoSrc="/assets/sabor-natural.png"
+            signoSrc="/assets/sabor-natural-pote.jpg"
             proteinClaim="16g"
           />
 
@@ -171,7 +171,7 @@ export default function Sabores() {
             tone="frutos"
             title="Frutos rojos"
             desc="Dulce, fresco y simplemente irresistible."
-            specs={["209 kcal", "14g proteína", "0g azúcar añadida", "Pote 190g"]}
+            specs={["Con prebióticos", "14g proteína", "0g azúcar añadida", "Pote 190g"]}
             benefits={[
               "Intenso y frutal sin ser artificial",
               "Sin azúcar añadida: la fruta hace el trabajo",

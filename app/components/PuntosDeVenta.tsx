@@ -8,29 +8,42 @@ type Punto = {
   nombre: string;
   barrio: string;
   calle: string;
-  dist: string;
-  x: number;
-  y: number;
-  type: "dietética" | "mercado" | "almacén";
+  // Posición aproximada en el mapa esquemático (%). Sin pin si queda fuera del mapa.
+  x?: number;
+  y?: number;
+  url?: string;
+  type: "dietética" | "mercado" | "almacén" | "online";
 };
 
 const PDV: Punto[] = [
-  { id: 1, nombre: "Tienda Verde",     barrio: "Palermo",            calle: "Honduras 4850",            dist: "0.4 km", x: 28, y: 32, type: "dietética" },
-  { id: 2, nombre: "Naturalia",        barrio: "Palermo Soho",       calle: "El Salvador 4720",         dist: "0.7 km", x: 33, y: 26, type: "dietética" },
-  { id: 3, nombre: "Mercado Bonpland", barrio: "Palermo Hollywood",  calle: "Bonpland 1660",            dist: "1.1 km", x: 24, y: 22, type: "mercado" },
-  { id: 4, nombre: "La Vidriera",      barrio: "Villa Crespo",       calle: "Av. Corrientes 5200",      dist: "1.8 km", x: 35, y: 45, type: "dietética" },
-  { id: 5, nombre: "Granix Soho",      barrio: "Recoleta",           calle: "Ayacucho 1280",            dist: "2.4 km", x: 52, y: 50, type: "dietética" },
-  { id: 6, nombre: "El Almacén",       barrio: "Belgrano",           calle: "Cabildo 1990",             dist: "3.6 km", x: 16, y: 16, type: "almacén" },
-  { id: 7, nombre: "Saludable Co.",    barrio: "Núñez",              calle: "Av. del Libertador 7100",  dist: "5.2 km", x: 12, y: 8,  type: "dietética" },
-  { id: 8, nombre: "Mercat Caballito", barrio: "Caballito",          calle: "Rivadavia 5040",           dist: "4.4 km", x: 44, y: 60, type: "mercado" },
-  { id: 9, nombre: "Buena Vibra",      barrio: "Colegiales",         calle: "Federico Lacroze 3380",    dist: "2.9 km", x: 26, y: 18, type: "dietética" },
+  { id: 1,  nombre: "Selva Mercado",  barrio: "Las Cañitas",    calle: "Ortega y Gasset 1808",          x: 37, y: 42, type: "mercado" },
+  { id: 2,  nombre: "Selva Mercado",  barrio: "Palermo",        calle: "Aráoz 2515",                    x: 50, y: 49, type: "mercado" },
+  { id: 3,  nombre: "Selva Mercado",  barrio: "Recoleta",       calle: "Av. Pueyrredón 1887",           x: 57, y: 54, type: "mercado" },
+  { id: 4,  nombre: "Selva Mercado",  barrio: "Chacarita",      calle: "Av. Álvarez Thomas 4",          x: 29, y: 48, type: "mercado" },
+  { id: 5,  nombre: "Almazen",        barrio: "Las Cañitas",    calle: "Gorostiaga 1891",               x: 30, y: 35, type: "almacén" },
+  { id: 6,  nombre: "Eco Despensa",   barrio: "Las Cañitas",    calle: "Migueletes 734",                x: 38, y: 33, type: "almacén" },
+  { id: 7,  nombre: "Soho Borges",    barrio: "Palermo Soho",   calle: "Borges 1842",                   x: 38, y: 54, type: "almacén" },
+  { id: 8,  nombre: "Jaial",          barrio: "Palermo",        calle: "Av. Scalabrini Ortiz 3306",     x: 44, y: 50, type: "dietética" },
+  { id: 9,  nombre: "Jaial",          barrio: "Belgrano",       calle: "Moldes 2454",                   x: 18, y: 31, type: "dietética" },
+  { id: 10, nombre: "Shafe Almacén",  barrio: "Belgrano",       calle: "Dragones 2000",                 x: 32, y: 25, type: "almacén" },
+  { id: 11, nombre: "Quiero Natural", barrio: "Chacarita",      calle: "Av. Jorge Newbery 1667",        x: 20, y: 58, type: "dietética" },
+  { id: 12, nombre: "Club Saludable", barrio: "Recoleta",       calle: "Av. Callao 834",                x: 60, y: 60, type: "dietética" },
+  { id: 13, nombre: "Coquitos",       barrio: "San Nicolás",    calle: "Cerrito 204",                   x: 65, y: 67, type: "dietética" },
+  { id: 14, nombre: "Angélica",       barrio: "Olivos",         calle: "Av. Maipú 3105",                x: 8, y: 9, type: "dietética" },
+  { id: 15, nombre: "Eneldo Mercado Natural", barrio: "Pilar", calle: "R. Caamaño 1175, La Lonja",                    type: "mercado" },
+  { id: 16, nombre: "E-Kosher",       barrio: "Envíos a domicilio", calle: "Tienda online", url: "https://ekosher.com.ar/", type: "online" },
 ];
+
+const mapsUrl = (p: Punto) =>
+  p.url ??
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${p.nombre}, ${p.calle}, ${p.barrio}, Buenos Aires`)}`;
 
 const FILTERS: [string, string][] = [
   ["todos", "Todos"],
   ["dietética", "Dietéticas"],
   ["mercado", "Mercados"],
   ["almacén", "Almacenes"],
+  ["online", "Online"],
 ];
 
 export default function PuntosDeVenta() {
@@ -43,7 +56,8 @@ export default function PuntosDeVenta() {
     const okF = filter === "todos" || p.type === filter;
     return okQ && okF;
   });
-  const activePin = filtered.find((p) => p.id === active) || filtered[0];
+  const pinned = filtered.filter((p) => p.x !== undefined && p.y !== undefined);
+  const activePin = pinned.find((p) => p.id === active) || pinned[0];
 
   return (
     <section className="puntos" id="puntos" data-screen-label="07 Puntos de Venta">
@@ -102,7 +116,9 @@ export default function PuntosDeVenta() {
                       {p.calle} · {p.barrio}
                     </div>
                   </div>
-                  <div className="dist">{p.dist}</div>
+                  <a className="dist" href={mapsUrl(p)} target="_blank" rel="noreferrer">
+                    {p.type === "online" ? "Comprar" : "Ver mapa"}
+                  </a>
                 </div>
               ))}
             </div>
@@ -112,9 +128,9 @@ export default function PuntosDeVenta() {
             <div className="grid-bg" aria-hidden="true" />
             <div className="river" aria-hidden="true" />
             <div className="river-lbl">Río de la Plata</div>
-            <div className="ba-lbl">Buenos Aires · CABA</div>
+            <div className="ba-lbl">Buenos Aires</div>
 
-            {filtered.map((p) => (
+            {pinned.map((p) => (
               <div
                 key={p.id}
                 className={`pin ${activePin && p.id === activePin.id ? "active" : ""}`}
@@ -127,10 +143,7 @@ export default function PuntosDeVenta() {
             ))}
 
             {activePin && (
-              <div
-                className="tooltip"
-                style={{ left: `${activePin.x}%`, top: `${activePin.y}%` }}
-              >
+              <div className="tooltip">
                 <strong>{activePin.nombre}</strong>
                 {activePin.calle} · {activePin.barrio}
               </div>
