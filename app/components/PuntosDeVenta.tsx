@@ -2,35 +2,36 @@
 
 import { useState } from "react";
 import { IcArrow, IcSearch } from "./icons";
+import StoreMap, { type MapPoint } from "./StoreMap";
 
 type Punto = {
   id: number;
   nombre: string;
   barrio: string;
   calle: string;
-  // Posición aproximada en el mapa esquemático (%). Sin pin si queda fuera del mapa.
-  x?: number;
-  y?: number;
+  // Sin coordenadas = sin pin (tienda online).
+  lat?: number;
+  lng?: number;
   url?: string;
   type: "dietética" | "mercado" | "almacén" | "online";
 };
 
 const PDV: Punto[] = [
-  { id: 1,  nombre: "Selva Mercado",  barrio: "Las Cañitas",    calle: "Ortega y Gasset 1808",          x: 37, y: 42, type: "mercado" },
-  { id: 2,  nombre: "Selva Mercado",  barrio: "Palermo",        calle: "Aráoz 2515",                    x: 50, y: 49, type: "mercado" },
-  { id: 3,  nombre: "Selva Mercado",  barrio: "Recoleta",       calle: "Av. Pueyrredón 1887",           x: 57, y: 54, type: "mercado" },
-  { id: 4,  nombre: "Selva Mercado",  barrio: "Chacarita",      calle: "Av. Álvarez Thomas 4",          x: 29, y: 48, type: "mercado" },
-  { id: 5,  nombre: "Almazen",        barrio: "Las Cañitas",    calle: "Gorostiaga 1891",               x: 30, y: 35, type: "almacén" },
-  { id: 6,  nombre: "Eco Despensa",   barrio: "Las Cañitas",    calle: "Migueletes 734",                x: 38, y: 33, type: "almacén" },
-  { id: 7,  nombre: "Soho Borges",    barrio: "Palermo Soho",   calle: "Borges 1842",                   x: 38, y: 54, type: "almacén" },
-  { id: 8,  nombre: "Jaial",          barrio: "Palermo",        calle: "Av. Scalabrini Ortiz 3306",     x: 44, y: 50, type: "dietética" },
-  { id: 9,  nombre: "Jaial",          barrio: "Belgrano",       calle: "Moldes 2454",                   x: 18, y: 31, type: "dietética" },
-  { id: 10, nombre: "Shafe Almacén",  barrio: "Belgrano",       calle: "Dragones 2000",                 x: 32, y: 25, type: "almacén" },
-  { id: 11, nombre: "Quiero Natural", barrio: "Chacarita",      calle: "Av. Jorge Newbery 1667",        x: 20, y: 58, type: "dietética" },
-  { id: 12, nombre: "Club Saludable", barrio: "Recoleta",       calle: "Av. Callao 834",                x: 60, y: 60, type: "dietética" },
-  { id: 13, nombre: "Coquitos",       barrio: "San Nicolás",    calle: "Cerrito 204",                   x: 65, y: 67, type: "dietética" },
-  { id: 14, nombre: "Angélica",       barrio: "Olivos",         calle: "Av. Maipú 3105",                x: 8, y: 9, type: "dietética" },
-  { id: 15, nombre: "Eneldo Mercado Natural", barrio: "Pilar", calle: "R. Caamaño 1175, La Lonja",                    type: "mercado" },
+  { id: 1,  nombre: "Selva Mercado",  barrio: "Las Cañitas",    calle: "Ortega y Gasset 1808",          lat: -34.5701, lng: -58.4324, type: "mercado" },
+  { id: 2,  nombre: "Selva Mercado",  barrio: "Palermo",        calle: "Aráoz 2515",                    lat: -34.5856, lng: -58.4146, type: "mercado" },
+  { id: 3,  nombre: "Selva Mercado",  barrio: "Recoleta",       calle: "Av. Pueyrredón 1887",           lat: -34.5894, lng: -58.3997, type: "mercado" },
+  { id: 4,  nombre: "Selva Mercado",  barrio: "Chacarita",      calle: "Av. Álvarez Thomas 4",          lat: -34.5831, lng: -58.4446, type: "mercado" },
+  { id: 5,  nombre: "Almazen",        barrio: "Las Cañitas",    calle: "Gorostiaga 1891",               lat: -34.5671, lng: -58.438, type: "almacén" },
+  { id: 6,  nombre: "Eco Despensa",   barrio: "Las Cañitas",    calle: "Migueletes 734",                lat: -34.5669, lng: -58.4334, type: "almacén" },
+  { id: 7,  nombre: "Soho Borges",    barrio: "Palermo Soho",   calle: "Borges 1842",                   lat: -34.587, lng: -58.4278, type: "almacén" },
+  { id: 8,  nombre: "Jaial",          barrio: "Palermo",        calle: "Av. Scalabrini Ortiz 3306",     lat: -34.5894, lng: -58.4228, type: "dietética" },
+  { id: 9,  nombre: "Jaial",          barrio: "Belgrano",       calle: "Moldes 2454",                   lat: -34.5604, lng: -58.4623, type: "dietética" },
+  { id: 10, nombre: "Shafe Almacén",  barrio: "Belgrano",       calle: "Dragones 2000",                 lat: -34.5538, lng: -58.4402, type: "almacén" },
+  { id: 11, nombre: "Quiero Natural", barrio: "Chacarita",      calle: "Av. Jorge Newbery 1667",        lat: -34.5964, lng: -58.459, type: "dietética" },
+  { id: 12, nombre: "Club Saludable", barrio: "Recoleta",       calle: "Av. Callao 834",                lat: -34.5992, lng: -58.3931, type: "dietética" },
+  { id: 13, nombre: "Coquitos",       barrio: "San Nicolás",    calle: "Cerrito 204",                   lat: -34.606, lng: -58.3822, type: "dietética" },
+  { id: 14, nombre: "Angélica",       barrio: "Olivos",         calle: "Av. Maipú 3105",                lat: -34.5071, lng: -58.4925, type: "dietética" },
+  { id: 15, nombre: "Eneldo Mercado Natural", barrio: "Pilar", calle: "R. Caamaño 1175, La Lonja", lat: -34.4508, lng: -58.8395, type: "mercado" },
   { id: 16, nombre: "E-Kosher",       barrio: "Envíos a domicilio", calle: "Tienda online", url: "https://ekosher.com.ar/", type: "online" },
 ];
 
@@ -50,13 +51,14 @@ export default function PuntosDeVenta() {
   const [q, setQ] = useState("");
   const [filter, setFilter] = useState<string>("todos");
   const [active, setActive] = useState<number | null>(null);
+  const [focus, setFocus] = useState<number | null>(null);
 
   const filtered = PDV.filter((p) => {
     const okQ = !q || `${p.nombre} ${p.barrio} ${p.calle}`.toLowerCase().includes(q.toLowerCase());
     const okF = filter === "todos" || p.type === filter;
     return okQ && okF;
   });
-  const pinned = filtered.filter((p) => p.x !== undefined && p.y !== undefined);
+  const pinned = filtered.filter((p): p is Punto & MapPoint => p.lat !== undefined && p.lng !== undefined);
   const activePin = pinned.find((p) => p.id === active) || pinned[0];
 
   return (
@@ -107,7 +109,10 @@ export default function PuntosDeVenta() {
                   key={p.id}
                   className={`result ${active === p.id ? "active" : ""}`}
                   onMouseEnter={() => setActive(p.id)}
-                  onClick={() => setActive(p.id)}
+                  onClick={() => {
+                    setActive(p.id);
+                    setFocus(p.id);
+                  }}
                 >
                   <span className="pin">{p.id}</span>
                   <div>
@@ -125,22 +130,7 @@ export default function PuntosDeVenta() {
           </div>
 
           <div className="map">
-            <div className="grid-bg" aria-hidden="true" />
-            <div className="river" aria-hidden="true" />
-            <div className="river-lbl">Río de la Plata</div>
-            <div className="ba-lbl">Buenos Aires</div>
-
-            {pinned.map((p) => (
-              <div
-                key={p.id}
-                className={`pin ${activePin && p.id === activePin.id ? "active" : ""}`}
-                style={{ left: `${p.x}%`, top: `${p.y}%` }}
-                onClick={() => setActive(p.id)}
-                title={p.nombre}
-              >
-                <span className="pin-inner">{p.id}</span>
-              </div>
-            ))}
+            <StoreMap points={pinned} activeId={activePin?.id} focusId={focus} onSelect={setActive} />
 
             {activePin && (
               <div className="tooltip">
