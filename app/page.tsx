@@ -48,7 +48,7 @@ export default function Page() {
       <Popup open={popupOpen} onClose={() => setPopupOpen(false)} />
       <Hero />
       <Marquee />
-      <Sabores />
+      <Sabores onOpenPopup={() => setPopupOpen(true)} />
       <SobreNosotros />
       <PuntosDeVenta />
       <Sumate />

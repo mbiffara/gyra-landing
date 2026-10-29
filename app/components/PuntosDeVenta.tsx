@@ -65,7 +65,7 @@ export default function PuntosDeVenta() {
     <section className="puntos" id="puntos" data-screen-label="07 Puntos de Venta">
       <div className="container">
         <div className="head">
-          <span className="eb">Puntos de venta</span>
+          <span className="eb">Puntos de venta · Próximamente</span>
           <h2>
             No estamos en todos lados. <em>Estamos donde tiene sentido.</em>
           </h2>
@@ -131,6 +131,11 @@ export default function PuntosDeVenta() {
 
           <div className="map">
             <StoreMap points={pinned} activeId={activePin?.id} focusId={focus} onSelect={setActive} />
+
+            <div className="soon">
+              <b>Próximamente</b>
+              <span>Te esperamos acá desde el lanzamiento</span>
+            </div>
 
             {activePin && (
               <div className="tooltip">

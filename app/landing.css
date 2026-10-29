@@ -543,7 +543,7 @@ button { font-family: inherit; }
   transition: max-height 480ms var(--ease-gyra);
   margin-top: 0;
 }
-.flavor.open .benefits { max-height: 800px; }
+.flavor.open .benefits { max-height: 1200px; }
 .flavor .benefits-inner {
   margin-top: 22px;
   padding-top: 22px;
@@ -601,10 +601,17 @@ button { font-family: inherit; }
 .nutrition .ingredients { margin: 14px 0 0; font-size: 12px; line-height: 1.45; }
 .nutrition .ingredients b { font-weight: 600; }
 .nutrition .allergens { margin: 6px 0 0; font-size: 11px; line-height: 1.4; opacity: 0.75; }
-.nutrition td:last-child {
+.nutrition td.val {
   text-align: right; font-weight: 800; font-style: italic;
   font-family: var(--font-display); letter-spacing: -0.005em;
 }
+.nutrition thead tr { border-bottom: 0; }
+.nutrition th { padding: 0 0 4px; }
+.nutrition .vd {
+  width: 3.6em; text-align: right;
+  font-family: var(--font-body); font-size: 11px; font-weight: 600; opacity: 0.75;
+}
+.nutrition .vd-note { margin: 10px 0 0; font-size: 10.5px; line-height: 1.4; opacity: 0.75; }
 
 .flavor .cta-final {
   margin-top: 24px;
@@ -932,6 +939,24 @@ button { font-family: inherit; }
   font-size: 14px; letter-spacing: -0.01em;
   margin-bottom: 4px;
   color: var(--gyra-lima);
+}
+
+.locator .map .soon {
+  position: absolute; top: 18px; right: 18px; z-index: 1000;
+  background: var(--gyra-lima); color: var(--gyra-azul);
+  border: 2px solid var(--gyra-azul); border-radius: 16px;
+  padding: 10px 16px; transform: rotate(3deg);
+  pointer-events: none; text-align: center;
+  box-shadow: 0 8px 24px rgba(10,31,77,0.25);
+}
+.locator .map .soon b {
+  display: block;
+  font-family: var(--font-display); font-weight: 900; font-style: italic;
+  font-size: 22px; letter-spacing: -0.02em; text-transform: uppercase; line-height: 1;
+}
+.locator .map .soon span {
+  display: block; margin-top: 4px;
+  font-family: var(--font-body); font-size: 11px; font-weight: 600;
 }
 
 .puntos .ask {

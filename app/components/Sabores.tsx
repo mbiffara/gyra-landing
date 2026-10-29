@@ -9,13 +9,15 @@ type FlavorProps = {
   desc: string;
   specs: string[];
   benefits: string[];
-  nutrition: [string, string, boolean?][];
+  nutrition: [string, string, string, boolean?][];
   ingredients: string;
+  ingredientsNote?: string;
   signoSrc: string;
   proteinClaim: string;
+  onOpenPopup: () => void;
 };
 
-function FlavorCard({ tone, title, desc, specs, benefits, nutrition, ingredients, signoSrc, proteinClaim }: FlavorProps) {
+function FlavorCard({ tone, title, desc, specs, benefits, nutrition, ingredients, ingredientsNote, signoSrc, proteinClaim, onOpenPopup }: FlavorProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -91,21 +93,33 @@ function FlavorCard({ tone, title, desc, specs, benefits, nutrition, ingredients
           <div className="nutrition">
             <div className="nut-head">
               <span>Tabla nutricional</span>
-              <span style={{ opacity: 0.7 }}>por pote · 190g</span>
+              <span style={{ opacity: 0.7 }}>porción 60g · 1 bocha</span>
             </div>
             <table>
+              <thead>
+                <tr>
+                  <th />
+                  <th />
+                  <th className="vd">%VD*</th>
+                </tr>
+              </thead>
               <tbody>
                 {nutrition.map((row, i) => (
-                  <tr key={i} className={row[2] ? "sub" : undefined}>
+                  <tr key={i} className={row[3] ? "sub" : undefined}>
                     <td>{row[0]}</td>
-                    <td>{row[1]}</td>
+                    <td className="val">{row[1]}</td>
+                    <td className="vd">{row[2]}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
+            <p className="vd-note">
+              (*) % Valores Diarios con base a una dieta de 2.000 kcal u 8.400 kJ. Sus valores diarios pueden ser mayores o menores dependiendo de sus necesidades energéticas.
+            </p>
             <p className="ingredients">
               <b>Ingredientes:</b> {ingredients}
             </p>
+            {ingredientsNote && <p className="allergens">{ingredientsNote}</p>}
             <p className="allergens">
               Contiene leche. Puede contener huevo, maní, almendras, avellanas, pistacho, sulfitos y derivados de soja.
             </p>
@@ -113,14 +127,14 @@ function FlavorCard({ tone, title, desc, specs, benefits, nutrition, ingredients
         </div>
       </div>
 
-      <button className="btn cta-final solid-azul" type="button">
+      <button className="btn cta-final solid-azul" type="button" onClick={onOpenPopup}>
         Quiero el mío <IcArrow width={14} height={14} />
       </button>
     </article>
   );
 }
 
-export default function Sabores() {
+export default function Sabores({ onOpenPopup }: { onOpenPopup: () => void }) {
   return (
     <section className="productos" id="productos" data-screen-label="04 Productos">
       <div className="container">
@@ -151,20 +165,22 @@ export default function Sabores() {
               "Sin TACC · Apto kosher",
             ]}
             nutrition={[
-              ["Valor energético", "238 kcal"],
-              ["Proteínas", "16 g"],
-              ["Hidratos de carbono", "26 g"],
-              ["azúcares totales", "1.6 g", true],
-              ["azúcar añadida", "0 g", true],
-              ["Grasas totales", "7.6 g"],
-              ["grasas saturadas", "2.5 g", true],
-              ["grasas trans", "0 g", true],
-              ["Fibra alimentaria", "21 g"],
-              ["Sodio", "28 mg"],
+              ["Valor energético", "75 kcal = 314 kJ", "4%"],
+              ["Carbohidratos", "8,3 g", "3%"],
+              ["azúcares totales", "0,5 g", "", true],
+              ["azúcares añadidos", "0 g", "", true],
+              ["Proteínas", "5,0 g", "7%"],
+              ["Grasas totales", "2,4 g", "4%"],
+              ["grasas saturadas", "0,8 g", "4%", true],
+              ["grasas trans", "0 g", "", true],
+              ["Fibra alimentaria", "6,7 g", "27%"],
+              ["Sodio", "8,8 mg", "0%"],
             ]}
-            ingredients="Agua, yogur descremado en polvo, polidextrosa, inulina, ghee, concentrado proteico de suero de leche, sal, maltitol, stevia, goma guar, ácido láctico, aroma idéntico al natural."
+            ingredients="Agua, yogur descremado en polvo*, polidextrosa, inulina, butteroil, concentrado proteico de suero de leche, sal, EDU: maltitol y stevia, EMU: INS 471, EST: goma guar, ACI: ácido láctico, ARO: idéntico al natural."
+            ingredientsNote="(*) Aporta cantidades no significativas de azúcares."
             signoSrc="/assets/sabor-natural-pote.jpg"
             proteinClaim="16g"
+            onOpenPopup={onOpenPopup}
           />
 
           <FlavorCard
@@ -180,20 +196,21 @@ export default function Sabores() {
               "Sin TACC · Apto kosher",
             ]}
             nutrition={[
-              ["Valor energético", "209 kcal"],
-              ["Proteínas", "14 g"],
-              ["Hidratos de carbono", "23 g"],
-              ["azúcares totales", "3.5 g", true],
-              ["azúcar añadida", "0 g", true],
-              ["Grasas totales", "6.6 g"],
-              ["grasas saturadas", "2.2 g", true],
-              ["grasas trans", "0 g", true],
-              ["Fibra alimentaria", "19 g"],
-              ["Sodio", "54 mg"],
+              ["Valor energético", "66 kcal = 276 kJ", "3%"],
+              ["Carbohidratos", "7,4 g", "2%"],
+              ["azúcares totales", "1,1 g", "", true],
+              ["azúcares añadidos", "0 g", "", true],
+              ["Proteínas", "4,4 g", "6%"],
+              ["Grasas totales", "2,1 g", "4%"],
+              ["grasas saturadas", "0,7 g", "3%", true],
+              ["grasas trans", "0 g", "", true],
+              ["Fibra alimentaria", "5,9 g", "24%"],
+              ["Sodio", "17 mg", "1%"],
             ]}
-            ingredients="Agua, frambuesa, yogur descremado en polvo, polidextrosa, arándanos, inulina, ghee, concentrado proteico de suero de leche, frutilla, sal, maltitol, stevia, goma guar, ácido láctico, ácido cítrico, aroma idéntico al natural."
+            ingredients="Agua, frambuesa, yogur descremado en polvo, polidextrosa, arándanos, inulina, butteroil, concentrado proteico de suero de leche, frutilla, sal, EDU: maltitol y stevia, EMU: INS 471, EST: goma guar, ACI: ácido láctico y ácido cítrico, ARO: idéntico al natural."
             signoSrc="/assets/frutos-rojos.png"
             proteinClaim="14g"
+            onOpenPopup={onOpenPopup}
           />
         </div>
       </div>
